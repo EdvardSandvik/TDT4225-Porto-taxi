@@ -14,6 +14,8 @@ password: sql2001
 
 To implement the CSV file into SQL, created a single table with every info field: TRIP_ID, CALL_TYPE, ORIGIN_CALL, ORIGIN_STAND,TAXI_ID, TIMESTAMP, DAYTYPE, MISSING_DATA, POLYLINE. It took more than 5 hours to write it to SQL, before makeing it more sturctred in differnt tables in SQL, it hsould be well planned. 
 
+Go to folder Figuers for visualzation of data that is not easy to read in the EDA: 
+
 Start of EDA: 
 
 === Basic Stats ===
@@ -21,14 +23,20 @@ Number of taxis: 448
 Number of trips: 1710589
 Total GPS points: 83407444
 
+Invalid trips (<3 GPS points): 43872
+
+Stationary trips (start=end): 365
+
+=== Distribution of Day Types ===  // lost DAYTYPE when writing to SQL, so all fields are blank
+DAYTYPE      num_trips
+---------  -----------
+               1710589
+
 === Trip Length Stats (GPS points) ===
   Min points    Max points    Avg points    Median points
 ------------  ------------  ------------  ---------------
            0          3881         48.76            41.00
 
-Invalid trips (<3 GPS points): 43872
-
-Stationary trips (start=end): 365
 
 === Distribution of Call Types ===
 CALL_TYPE      num_trips
@@ -37,10 +45,7 @@ B                 817881
 C                 527938
 A                 364770
 
-=== Distribution of Day Types ===  // lost DAYTYPE when writing to SQL, so all fields are blank
-DAYTYPE      num_trips
----------  -----------
-               1710589
+
 
 === Trips with Missing Data ===
   MISSING_DATA    num_trips    avg_points
